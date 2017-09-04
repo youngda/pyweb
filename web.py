@@ -3,7 +3,7 @@ import hashlib
 from bs4 import BeautifulSoup
 class DoubanClient(object):
     def __init__(self):
-        self.headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36'}
+        self.headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36'}
         self.session = requests.session()
     def login(self,username,password,
               drop = '0',
@@ -18,18 +18,18 @@ class DoubanClient(object):
                 'type':type,
                 'n':n}
         self.session.post(login_url,data=data,headers = self.headers)
-        re = requests.get('https://www.baidu.com/')
+        re = requests.get("http://www.xiqueer.com/")
         re.encoding = 'utf-8'
         return (len(str(re.text)))
 if __name__ == '__main__':
-    username = '01002'
-    password = 987654321
+    username = '00001'
+    password = 121212
     password = hashlib.md5(str(password).encode('utf-8')).hexdigest()[8:-8]
     D  = DoubanClient()
     userint = 1
     key = [1000,2000,3000,4000,5000,6000,7000,8000,9000]
     intstr = D.login(username,password)
-    flag = 0
+    flag = 1
     while (intstr == 267 and userint <= 2100):
         userint = userint + 1
         if flag == 1:
@@ -57,5 +57,4 @@ if __name__ == '__main__':
         for i in key:
             if userint == i:
                 print(i)
-        print(username)
     print(username)
