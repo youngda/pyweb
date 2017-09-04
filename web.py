@@ -23,7 +23,7 @@ class DoubanClient(object):
         return (len(str(re.text)))
 if __name__ == '__main__':
     username = '00001'
-    password = 121212
+    password = 232323
     password = hashlib.md5(str(password).encode('utf-8')).hexdigest()[8:-8]
     D  = DoubanClient()
     userint = 1
