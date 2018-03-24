@@ -32,9 +32,12 @@ class RePass(object):
         return repassword
 if __name__ == '__main__':
     username = 'xxnmc'
-    oldpassword = '22222222'
-    repasswd = "11110000"
+    repasswd = 1
     D  = RePass()
-    intstr = D.login(username,oldpassword,repasswd)
-    print(intstr)
-
+    oldpass = "11110000"
+    while repasswd<100:
+        strpass = "hello"+str(repasswd)
+        repasswd = repasswd + 1
+        intstr = D.login(username,oldpass,strpass)
+        oldpass = strpass
+        print(strpass)
