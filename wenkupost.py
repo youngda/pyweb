@@ -1,9 +1,6 @@
 
 # coding: utf-8
 
-# In[1]:
-
-
 import requests
 import base64
 url = 'http://139.224.236.108/post.php'
@@ -23,7 +20,7 @@ headers = {
 }
 data = {
     "usrname": "rpu6kv",
-    "usrpass": "c83zu",
+    "usrpass": "cx83zu",
     "docinfo": "6d44f96a581b6bd97e19ea14",
     "taskid": "up_down_doc",
 }
