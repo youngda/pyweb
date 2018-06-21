@@ -1,7 +1,7 @@
 import requests
 import hashlib
 #from bs4 import BeautifulSoup
-class DoubanClient(object):
+class LoginClient(object):
     def __init__(self):
         self.headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36'}
         self.session = requests.session()
@@ -25,7 +25,7 @@ if __name__ == '__main__':
     username = 'A074'
     passwordint = 1190
     passwordstr = hashlib.md5(str(passwordint).encode('utf-8')).hexdigest()[8:-8]
-    D  = DoubanClient()
+    D  = LoginClient()
     key = [100,200,300,400,500,600,700,800,900]
     intstr = D.login(username,passwordstr)
     while (intstr == 267 and passwordint != 999999):
