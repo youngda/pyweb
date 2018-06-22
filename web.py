@@ -1,6 +1,6 @@
 import requests
 import hashlib
-class DoubanClient(object):
+class DoClient(object):
     def __init__(self):
         self.headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36'}
         self.session = requests.session()
@@ -24,7 +24,7 @@ if __name__ == '__main__':
     username = '00001'
     password = 778899
     password = hashlib.md5(str(password).encode('utf-8')).hexdigest()[8:-8]
-    D  = DoubanClient()
+    D  = DoClient()
     userint = 1
     key = [100,200,300,400,500,600,700,800,900]
     intstr = D.login(username,password)
